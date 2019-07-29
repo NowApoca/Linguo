@@ -1,33 +1,8 @@
 import React from 'react';
 import './App.css';
 import {translate} from "./translate"
-
-class Index extends React.Component {
-  constructor(props){
-    super(props)
-    this.unMount = props.unMount
-  }
-render() {
-  return (
-  <div className="App">
-    <h1> {translate("welcome","CH")} </h1>
-    <button onClick={() => { this.unMount("number")}}>Number</button>
-  </div>);
-}
-}
-class Numbers extends React.Component {
-  constructor(props){
-    super(props)
-    this.unMount = props.unMount
-  }
-render() {
-  return (
-  <div className="App">
-    <h1> Numbers </h1>
-    <button onClick={() => { this.unMount("index")}}>Index</button>
-  </div>);
-}
-}
+import {Index} from "./components/index"
+import {Numbers} from "./components/number"
 
 class App extends React.Component {
     constructor(props){
