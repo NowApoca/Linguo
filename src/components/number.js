@@ -7,7 +7,7 @@ export class Numbers extends React.Component {
     constructor(props){
         super(props)
         this.unMount = props.unMount
-        this.state = {numberInText:0,numberRandom:-5}
+        this.state = {numberInText:0,numberRandom:-1,answered:false,response:false}
         this.handleNumberChange = this.handleNumberChange.bind(this);
         this.handleVerify = this.handleVerify.bind(this);
         this.generateNumber = this.generateNumber.bind(this);
@@ -19,11 +19,11 @@ export class Numbers extends React.Component {
         let randNumber = String(Math.floor(Math.random()*constants.maxNumCHN));
         this.setState({numberRandom: randNumber});
     }
-    handleVerify(event){
+    handleVerify(){
         if(this.state.numberInText == this.state.numberRandom){
-
+            this.setState({answered:true,response:true})
         }else{
-
+            this.setState({answered:true,response:false})
         }
     }
     render() {
@@ -38,7 +38,6 @@ export class Numbers extends React.Component {
                 <button onClick={() => { this.generateNumber("index")}}>Generate Number Random</button>
                 <h1> Numbers </h1>
                 <h1> From {"-"+constants.maxNumCHN} to {constants.maxNumCHN} </h1>
-                <h1> Numbers </h1>
                 {(this.state.numberRandom < 0) ? (
                     ""
                         ) : (
@@ -49,6 +48,14 @@ export class Numbers extends React.Component {
                 <input type="text" value={this.state.numberInText} onChange={this.handleNumberChange} />
                 </label>
                 <button onClick={() => { this.handleVerify()}}>Verify</button>
+                {(this.state.answered) ? (
+                    (this.state.response) ? (
+                        <h1>Bien</h1>
+                            ) : (
+                                <h1> Mal </h1>
+                    )
+                )
+                : ("") }
             </div>);
   }
   }
