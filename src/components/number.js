@@ -2,6 +2,9 @@ import React from 'react';
 import '../App.css';
 import {constants} from "../constant"
 import { translateNumber } from '../translate';
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import '../styles/styles.css'
 
 export class Numbers extends React.Component {
     constructor(props){
@@ -35,12 +38,12 @@ export class Numbers extends React.Component {
         if(this.state.numberRandom > -1){
             translation = translateNumber(this.state.numberRandom,"NUMCHN")
         }
-        console.log(this.state.numberRandom,this.state.language)
         return (
             <div className="App">
-                <button onClick={() => { this.unMount("index")}}>Index</button>
-                <button onClick={() => { this.generateNumber("index")}}>Generate Number Random</button>
-                <h1> Numbers </h1>
+                <div class="container-name">
+                    <Button variant="secondary" onClick={() => { this.generateNumber("index")}}>Generate Number Random</Button>
+                    <h1> Numbers </h1>
+                </div>
                 <h1> From {"-"+this.state.maxNumber} to {this.state.maxNumber +". Max number allowed: "+constants.maxNumCHN} </h1>
                 {(this.state.numberRandom < 0) ? (
                     ""
@@ -64,6 +67,10 @@ export class Numbers extends React.Component {
                     )
                 )
                 : ("") }
+
+            <div class="fixed-bottom">>
+                <h1>HOLA</h1>
+            </div>
             </div>);
   }
   }
