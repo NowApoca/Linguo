@@ -3,16 +3,26 @@
     border: 5px solid pink;
     width: 100%;
     background-color: pink;
-    height: 100px;
+    height: 10%;
 }
 
 .bottomBar {
     margin: 0px;
     position: absolute;
-    height: 200px;
+    height: 15%;
     bottom: 0;
     border: 5px solid pink;
     width: 100%;
+    background-color: pink;
+}
+
+
+.textOutput {
+    margin: 0px;
+    position: absolute;
+    height: 30%;
+    bottom: 15%;
+    border: 5px solid pink;
     background-color: pink;
 }
 
@@ -35,3 +45,4 @@
     width: 200px;
     display: "inline-block";
 }
+

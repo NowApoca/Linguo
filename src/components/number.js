@@ -52,24 +52,54 @@ export class Numbers extends React.Component {
                 <img src={logo} alt="Smiley face" height="42" width="42"></img>
             </div>
                 <div className="container">
-                    <div className="row">
-                        <div className="col-12 center-block">
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className = "col-4 center-block">
+                    <div class="row ">
+                        <div class = "col-12 offset-md-3">
                             <Button style={letterStyle} className="randomNumber" variant="secondary" onClick={() => { this.generateNumber("index")}}>Generate Number Random</Button>
                             <h1 style={letterStyle}>Numbers</h1>
-                        
-                        </div>
-                        <div className = "col-4 center-block">
-                            <Button style={letterStyle} className="randomNumber" variant="secondary" onClick={() => { this.generateNumber("index")}}>Generate Number Random</Button>
-                            <h1 style={letterStyle}>Numbers</h1>
-                        </div>
-                        <div className="col-4 center-block">
-                            
+                            <h6> From 0 to {this.state.maxNumber +". Max number allowed: "+constants.maxNumCHN} </h6>                        
                         </div>
                     </div>
+                    <div class="row ">
+                        <div class = "col-12 offset-md-2">
+                            {(this.state.numberRandom < 0) ? (
+                                ""
+                                    ) : (
+                                        <h1> {translation} </h1>
+                            )}
+                            <label>
+                            Max Number:
+                            <input type="text" value={this.state.maxNumber} onChange={this.handleMaxNumberChange} />
+                            </label>
+                            <label>
+                            Number:
+                            <input type="text" value={this.state.numberInText} onChange={this.handleNumberChange} />
+                            </label>
+                            <button onClick={() => { this.handleVerify()}}>Verify</button>
+                            {(this.state.answered) ? (
+                                (this.state.response) ? (
+                                    <h1>Bien</h1>
+                                        ) : (
+                                            <h1> Mal </h1>
+                                )
+                            )
+                            : ("") }    
+                        </div>
+                    </div>
+                    
+                </div>
+                <div className="textOutput">
+                <div class="wrapper">
+  <div class="form-group">
+    <label for="exampleFormControlTextarea2">WATCH MY SCROLLBAR</label>
+    <textarea class="form-control rounded-0" rows="5" >
+	??????????
+      
+		</textarea>
+  </div>
+</div>
+                </div>
+                <div className="bottomBar">
+                    <img src={logo} alt="Smiley face" height="42" width="42"></img>
                 </div>
             </div>
             );
