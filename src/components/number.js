@@ -5,6 +5,13 @@ import { translateNumber } from '../translate';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/styles.css'
+import logo from "../images/logo.png";
+
+var letterStyle = {
+    padding: 10,
+    margin: 10,
+    display: "inline",
+  };
 
 export class Numbers extends React.Component {
     constructor(props){
@@ -39,38 +46,32 @@ export class Numbers extends React.Component {
             translation = translateNumber(this.state.numberRandom,"NUMCHN")
         }
         return (
-            <div className="App">
-                <div class="container-name">
-                    <Button variant="secondary" onClick={() => { this.generateNumber("index")}}>Generate Number Random</Button>
-                    <h1> Numbers </h1>
-                </div>
-                <h1> From {"-"+this.state.maxNumber} to {this.state.maxNumber +". Max number allowed: "+constants.maxNumCHN} </h1>
-                {(this.state.numberRandom < 0) ? (
-                    ""
-                        ) : (
-                            <h1> {translation} </h1>
-                )}
-                <label>
-                Max Number:
-                <input type="text" value={this.state.maxNumber} onChange={this.handleMaxNumberChange} />
-                </label>
-                <label>
-                Number:
-                <input type="text" value={this.state.numberInText} onChange={this.handleNumberChange} />
-                </label>
-                <button onClick={() => { this.handleVerify()}}>Verify</button>
-                {(this.state.answered) ? (
-                    (this.state.response) ? (
-                        <h1>Bien</h1>
-                            ) : (
-                                <h1> Mal </h1>
-                    )
-                )
-                : ("") }
 
-            <div class="fixed-bottom">>
-                <h1>HOLA</h1>
+            <div>
+            <div className="navBar">
+                <img src={logo} alt="Smiley face" height="42" width="42"></img>
             </div>
-            </div>);
+                <div className="container">
+                    <div className="row">
+                        <div className="col-12 center-block">
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className = "col-4 center-block">
+                            <Button style={letterStyle} className="randomNumber" variant="secondary" onClick={() => { this.generateNumber("index")}}>Generate Number Random</Button>
+                            <h1 style={letterStyle}>Numbers</h1>
+                        
+                        </div>
+                        <div className = "col-4 center-block">
+                            <Button style={letterStyle} className="randomNumber" variant="secondary" onClick={() => { this.generateNumber("index")}}>Generate Number Random</Button>
+                            <h1 style={letterStyle}>Numbers</h1>
+                        </div>
+                        <div className="col-4 center-block">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            );
   }
   }

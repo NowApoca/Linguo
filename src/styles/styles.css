@@ -1,4 +1,37 @@
-.container-name div {
-    display: inline-block;
-	background-color: #eee;
+.navBar {
+    margin: 0px;
+    border: 5px solid pink;
+    width: 100%;
+    background-color: pink;
+    height: 100px;
+}
+
+.bottomBar {
+    margin: 0px;
+    position: absolute;
+    height: 200px;
+    bottom: 0;
+    border: 5px solid pink;
+    width: 100%;
+    background-color: pink;
+}
+
+.randomNumber {
+    height: 50px;
+    border: 2px solid gray;
+    width: 300px;
+    background-color: wheat;
+    color: gray;
+}
+
+.mainDiv {
+    background: wheat;
+    text-align: center;
+}
+
+
+.inlineDiv {
+    height: 200px;
+    width: 200px;
+    display: "inline-block";
 }
