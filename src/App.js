@@ -5,6 +5,8 @@ import {Index} from "./components/index"
 import {Numbers} from "./components/number"
 import {Dropdown,Navbar,Nav, NavDropdown,Form,Button} from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.css';
+import logo from "./images/logo.png";
+import {NavBar} from "./components/navbar"
 
 class App extends React.Component {
     constructor(props){
@@ -28,7 +30,13 @@ class App extends React.Component {
   render() {
     return (
     <div >
+
+      <NavBar />
       {this.nextComponent()}
+
+      <div className="bottomBar sticky-bottom">
+                    <img src={logo} alt="Smiley face" height="42" width="42"></img>
+                </div>
     </div>);
   }
 }

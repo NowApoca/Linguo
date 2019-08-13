@@ -1,4 +1,4 @@
 
 export const wordsPinCh = {
-    nihao:"你好"
+    nihao:"你好",
 }

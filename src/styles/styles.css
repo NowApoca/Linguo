@@ -1,5 +1,6 @@
 .navBar {
     margin: 0px;
+    border-top:10px solid #000;
     border: 5px solid pink;
     width: 100%;
     background-color: pink;
@@ -8,7 +9,7 @@
 
 .bottomBar {
     margin: 0px;
-    position: absolute;
+    position: fixed;
     height: 15%;
     bottom: 0;
     border: 5px solid pink;
@@ -16,20 +17,40 @@
     background-color: pink;
 }
 
+.font {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+.textAreaNumber {
+    margin: 0px;
+    position: absolute;
+    border: 5px solid pink;
+    height: 100px;
+    width: 60%;
+}
 
 .textOutput {
     margin: 0px;
     position: absolute;
-    height: 30%;
-    bottom: 15%;
-    border: 5px solid pink;
-    background-color: pink;
+    bottom: 35%;
+}
+
+.mainContainer {
+    background-color: orange;
 }
 
 .randomNumber {
     height: 50px;
     border: 2px solid gray;
     width: 300px;
+    background-color: wheat;
+    color: gray;
+}
+
+.helpButton {
+    height: 50px;
+    border: 2px solid gray;
+    width: 100px;
     background-color: wheat;
     color: gray;
 }
@@ -46,3 +67,7 @@
     display: "inline-block";
 }
 
+
+.div-2 {
+    height: 100px;
+}

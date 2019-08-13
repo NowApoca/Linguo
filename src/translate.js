@@ -1,19 +1,21 @@
 import {wordsPinCh} from "./vocabulary/pinyinChr"
 import {wordsEngPin} from "./vocabulary/englishPinyin"
-import {numberChr,numberPin} from "./vocabulary/numberChn"
+import {wordsEngChr} from "./vocabulary/englishChr"
 
 export function translate(word,language){
     let translation;
+    if(!word && word.toString()!="0"){
+        return "";
+    }
     switch(language){
         case "PIN":
             translation = wordsEngPin[word]
             break;
         case "CH":
-            let engToPin = wordsEngPin[word]
-            translation = wordsPinCh[engToPin]
+            translation = wordsEngChr[word]
             break;
         case "NUMCHN":
-            translation = numberChr[word]
+            translation = wordsEngChr[word]
             break;
         default: 
             translation = ""
@@ -23,6 +25,10 @@ export function translate(word,language){
 
 export function translateNumber(number,language){
     let translatedNumber = ""
+    if(!number){
+        return "";
+    }
+    number = number.toString()
     switch(language){
         case "PIN":
             // translation = wordsEngPin[word]
@@ -68,13 +74,11 @@ export function translateNumber(number,language){
                 if(digitRes === 0 && decimals === 1){
                     return translate("0",language)
                 }
-                console.log(digit, digitRes, number)
                 translatedNumber = digit + translatedNumber
             }
             break;
         default: 
         translatedNumber = ""
     }
-    console.log(translatedNumber)
     return translatedNumber;
 }
