@@ -13,7 +13,7 @@ export class SectionBox extends React.Component {
     }
     render() {
         return (
-            <div className="col-sm-3 offset-sm-1" style={{"border":"15px double grey","background-color":"white", margin:"30px"}}>
+            <div className="col-sm-3" style={{"border":"15px double grey","background-color":"white", margin:"30px"}}>
                 <div style={{height:"240px"}}>
                     <Button style={{width:"100%","background-color":"grey","margin-top":"10px","margin-bottom":"10px"}}> {this.state.subjet} </Button>
                     <img src={logo} width="100%" height="65%" />
