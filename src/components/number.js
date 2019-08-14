@@ -48,16 +48,19 @@ export class Numbers extends React.Component {
             translation = translateNumber(this.state.numberRandom,"NUMCHN")
         }
         return (
-            <div>
-                <div className="container">
+            <div >
+                <div className="container" style={{"background-color":"grey","height":"90vh"}} >
                     <div class="row">
-                        <div class = "col-6 offset-md-3" style={{height:"10px"}} >
+                        <div style={{height:"30px"}}></div>
+                    </div>
+                    <div class="row">
+
+                        <div class = "col-6 offset-md-2" style={{height:"10px"}} >
                             <Button  className="randomNumber" variant="secondary" onClick={() => { this.generateNumber("index")}}>Generate Number Random</Button>
                         </div>
-                        
                         <div class = "col-3">
                             <Button  className="helpButton" variant="secondary" onClick={() => { this.showHelp()}}> 
-                            <img src={logo} width="20" /> Help
+                            {/* <img src={logo} width="20" />  */}Help
                             </Button>
                             {/* {this.state.showHelp && <Text> hola</Text> */}
                             {(this.state.showHelp) ? 
@@ -68,40 +71,51 @@ export class Numbers extends React.Component {
                             )} 
                         </div>
                     </div>
+                    <div class="row">
+                        <div style={{height:"30px"}}></div>
+                    </div>
                     <div class="row ">
-                        <div class = "col-6 offset-md-4" height="10">
+                        <div class = "col-6 offset-md-2" height="10">
                             <h6> From 0 to {this.state.maxNumber +". Max number allowed: "+constants.maxNumCHN} </h6>                        
                         </div>
                     </div>
                     <div class="row ">
-                        <div class = "col-6 offset-md-4 div-2" height="10">
+                        <div class = "col-6 offset-md-2 div-2" height="10">
                             <label>
                             Max Number:
                             <input size="15" type="text" value={this.state.maxNumber} onChange={this.handleMaxNumberChange} />
-                            {(this.state.numberRandom < 0) ? (
-                                ""
-                                    ) : (
-                                        <h1 style={{position:"absolute"}}> {translation} </h1>
-                            )}
+                            
                             </label>
                         </div>                        
                     </div>
-                    <div class="row ">
-                        <div class = "col-6 offset-md-3">
+                    <div class="row">
+                        <div class="col-7 offset-md-1">
+                            {(this.state.numberRandom < 0) ? (
+                                ""
+                                    ) : (
+                                        <h1 style={{position:"absolute","font-size":"100px"}}> {translation} </h1>
+                            )}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div className = "col-6 offset-md-1 verifyButton">
                                 <label>
                                 Number:
                                 <input size="15" type="text" value={this.state.numberInText} onChange={this.handleNumberChange} />
                                 </label>
                                 <button onClick={() => { this.handleVerify()}}>Verify</button>
-                                {(this.state.answered) ? (
-                                    (this.state.response) ? (
-                                        <h1 className="font">Bien</h1>
-                                            ) : (
-                                                <h1> Mal </h1>
-                                    )
+                                   
+                        </div>
+                        <div className = "col-3 offset-md-5 verifyButton">
+                            {(this.state.answered) ? (
+                                (this.state.response) ? (
+                                    <h1 className="font">Bien</h1>
+                                        ) : (
+                                            <h1> Mal </h1>
                                 )
-                                : ("") }   
-                            </div>
+                            )
+                            : ("") }
+                        </div>
                     </div>
                     <div class="row ">
                         <div className="col-10 offset-md-2 textOutput ">
@@ -109,7 +123,7 @@ export class Numbers extends React.Component {
                         </div>
                     </div>
                     <div class="row ">
-                        <div className="col-10 offset-md-2 textOutput ">
+                        <div className="col-12 textOutput ">
                                 <textarea class="col-8 textAreaNumber" value = {this.state.stringOfResults} ></textarea>
                         </div>
                     </div>
@@ -118,3 +132,5 @@ export class Numbers extends React.Component {
             );
   }
   }
+
+  

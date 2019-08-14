@@ -1,10 +1,15 @@
 .navBar {
     margin: 0px;
-    border-top:10px solid #000;
-    border: 5px solid pink;
     width: 100%;
+    border-bottom-style: solid;
     background-color: pink;
     height: 10%;
+}
+
+.navBarButton {
+    background-color: pink;
+    border: none;
+    color: red;
 }
 
 .bottomBar {
@@ -32,7 +37,12 @@
 .textOutput {
     margin: 0px;
     position: absolute;
-    bottom: 35%;
+    bottom: 15%;
+}
+
+.verifyButton {
+    position: absolute;
+    bottom: 25%;
 }
 
 .mainContainer {
@@ -47,12 +57,13 @@
     color: gray;
 }
 
+
 .helpButton {
+    display:block;
     height: 50px;
-    border: 2px solid gray;
-    width: 100px;
-    background-color: wheat;
-    color: gray;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid red;
 }
 
 .mainDiv {

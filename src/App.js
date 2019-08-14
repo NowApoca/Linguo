@@ -3,6 +3,7 @@ import './App.css';
 import {translate} from "./translate"
 import {Index} from "./components/index"
 import {Numbers} from "./components/number"
+import {Teoric} from "./components/teorics"
 import {Dropdown,Navbar,Nav, NavDropdown,Form,Button} from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.css';
 import logo from "./images/logo.png";
@@ -24,6 +25,8 @@ class App extends React.Component {
             return <Numbers unMount={this.unMountChild.bind(this)} language={this.state.language}/>
         case "phrase":
             return <Index unMount={this.unMountChild.bind(this)} language={this.state.language}/>
+        case "teoric":
+            return <Teoric unMount={this.unMountChild.bind(this)} language={this.state.language}/>
         default:
       }
     }
@@ -33,10 +36,6 @@ class App extends React.Component {
 
       <NavBar />
       {this.nextComponent()}
-
-      <div className="bottomBar sticky-bottom">
-                    <img src={logo} alt="Smiley face" height="42" width="42"></img>
-                </div>
     </div>);
   }
 }
