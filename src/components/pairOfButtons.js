@@ -45,21 +45,21 @@ export class PairButtons extends React.Component {
                 {(this.state.subjet1) ? 
                     (<div class="row">
                         <div class="col-4">
-                            <Button style={{margin:"10px",border:"none"}}> {this.state.subjet1.subjet} </Button>
+                            <Button className="themeButton btn-outline-dark"> {this.state.subjet1.subjet} </Button>
                         </div>
                     </div>): 
                     (function(){})}
                     {(this.state.subjet1) ? 
                         (<div class="row">
                             <div class="col-4">
-                                <Button style={{margin:"10px",border:"none"}}> {this.state.subjet1.subjet} </Button>
+                                <Button className="themeButton btn-outline-dark"> {this.state.subjet1.subjet} </Button>
                             </div>
                         </div>): 
                         (function(){})}
                         {(this.state.subjet1) ? 
                             (<div class="row">
                                 <div class="col-4">
-                                    <Button style={{margin:"10px",border:"none"}}> {this.state.subjet1.subjet} </Button>
+                                    <Button className="themeButton btn-outline-dark"> {this.state.subjet1.subjet} </Button>
                                 </div>
                             </div>): 
                             (function(){})}

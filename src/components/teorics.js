@@ -8,7 +8,9 @@ import {SectionBox} from "./sectionBox"
 import {SubjetBar} from "./subjectBar"
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/styles.css'
-import logo from "../images/logo.png";
+import hanzi from "../images/hanzi.png";
+import number from "../images/number.png";
+import vocabulary from "../images/vocabulary.png";
 
 export class Teoric extends React.Component {
     constructor(props){
@@ -23,15 +25,15 @@ export class Teoric extends React.Component {
         }
         return (
             <div >
-                <div className="container" style={{"background-color":"grey","height":"100%"}} >
+                <div className="container teoricContainer" >
                     <div className="row">
-                        <SectionBox subjet="Words"/>
-                        <SectionBox subjet="Letters"/>
+                        <SectionBox subjet="hanzi" image={hanzi}/>
+                        <SectionBox subjet="hanzi" image={hanzi}/>
                         <SubjetBar/>
                     </div>
                     <div className="row">
-                        <SectionBox subjet="Number"/>
-                        <SectionBox subjet="Vocabulary"/>
+                        <SectionBox subjet="number" image={number}/>
+                        <SectionBox subjet="vocabulary" image={vocabulary}/>
                     </div>
                     <div className="row">
                         <SectionBox subjet="Auctions"/>

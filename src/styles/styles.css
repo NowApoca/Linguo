@@ -2,14 +2,16 @@
     margin: 0px;
     width: 100%;
     border-bottom-style: solid;
-    background-color: pink;
+    background-color: rgb(235, 230, 231);
     height: 10%;
 }
 
 .navBarButton {
-    background-color: pink;
+    margin: 10px;
+    background-color: rgb(235, 230, 231);
     border: none;
-    color: red;
+    color: gray;
+    border-bottom-style: solid;
 }
 
 .bottomBar {
@@ -20,6 +22,12 @@
     border: 5px solid pink;
     width: 100%;
     background-color: pink;
+}
+
+.teoricContainer {
+    background-color: rgb(206, 206, 206);
+    height: 100%;
+    border-radius: 35px;
 }
 
 .font {
@@ -78,7 +86,24 @@
     display: "inline-block";
 }
 
+.themeButton {
+    background: none;
+    border: none;
+    color:black;
+    margin: 10px;
+}
 
 .div-2 {
     height: 100px;
+}
+
+.blogButton {
+    width:30%;
+    background-color:grey;
+    color:grey;
+    background:none;
+    border: black;
+    border-left-style: solid;
+    outline: none !important;
+    outline-offset: none !important;
 }

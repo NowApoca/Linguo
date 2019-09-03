@@ -14,19 +14,22 @@ class App extends React.Component {
       super(props)
       this.state = {mount:props.mount,language:"eng"}
     }
-    unMountChild(nextComponent){
+
+    mountChild(nextComponent){
       this.setState({mount:nextComponent})
     }
+
     nextComponent(){
+      console.group(this.state.mount)
       switch(this.state.mount){
         case "index":
-          return <Index unMount={this.unMountChild.bind(this)} language={this.state.language}/>
+          return <Index unMount={this.mountChild.bind(this)} language={this.state.language}/>
         case "number":
-            return <Numbers unMount={this.unMountChild.bind(this)} language={this.state.language}/>
+            return <Numbers unMount={this.mountChild.bind(this)} language={this.state.language}/>
         case "phrase":
-            return <Index unMount={this.unMountChild.bind(this)} language={this.state.language}/>
+            return <Index unMount={this.mountChild.bind(this)} language={this.state.language}/>
         case "teoric":
-            return <Teoric unMount={this.unMountChild.bind(this)} language={this.state.language}/>
+            return <Teoric unMount={this.mountChild.bind(this)} language={this.state.language}/>
         default:
       }
     }
@@ -34,7 +37,7 @@ class App extends React.Component {
     return (
     <div >
 
-      <NavBar />
+      <NavBar mountChild={this.mountChild.bind(this)} />
       {this.nextComponent()}
     </div>);
   }
