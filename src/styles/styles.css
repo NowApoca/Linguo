@@ -107,3 +107,13 @@
     outline: none !important;
     outline-offset: none !important;
 }
+
+
+.blogSubjects {
+    position:absolute;
+    border:"1px solid red";
+    margin: 30px;
+    background:gray;
+    border: red;
+    border-radius: 15px;
+}

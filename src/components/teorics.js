@@ -29,7 +29,7 @@ export class Teoric extends React.Component {
                     <div className="row">
                         <SectionBox subjet="hanzi" image={hanzi}/>
                         <SectionBox subjet="hanzi" image={hanzi}/>
-                        <SubjetBar/>
+                        <SubjetBar />
                     </div>
                     <div className="row">
                         <SectionBox subjet="number" image={number}/>
