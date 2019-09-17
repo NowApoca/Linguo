@@ -1,9 +1,6 @@
 import React from 'react';
 import '../App.css';
-import {constants} from "../constant"
 import { translateNumber } from '../translate';
-import { Button } from 'react-bootstrap';
-import { NumberHelp } from './numberHelp';
 import {SectionBox} from "./sectionBox"
 import {SubjetBar} from "./subjectBar"
 import 'bootstrap/dist/css/bootstrap.css';
@@ -16,7 +13,7 @@ export class Teoric extends React.Component {
     constructor(props){
         super(props)
         this.unMount = props.unMount
-        this.state = {}
+        this.state = {articles:[{title:"",type:"",date:""}]}
     }
     render() {
         let translation;
@@ -27,13 +24,13 @@ export class Teoric extends React.Component {
             <div >
                 <div className="container teoricContainer" >
                     <div className="row">
-                        <SectionBox subjet="hanzi" image={hanzi}/>
-                        <SectionBox subjet="hanzi" image={hanzi}/>
+                        <SectionBox subjet="hanzi" date="29-11-10" image={hanzi}/>
+                        <SectionBox subjet="hanzi" date="29-11-11" image={hanzi}/>
                         <SubjetBar />
                     </div>
                     <div className="row">
-                        <SectionBox subjet="number" image={number}/>
-                        <SectionBox subjet="vocabulary" image={vocabulary}/>
+                        <SectionBox subjet="number" date="29-11-12" image={number}/>
+                        <SectionBox subjet="vocabulary" date="29-11-13" image={vocabulary}/>
                     </div>
                     <div className="row">
                         <SectionBox subjet="Auctions"/>
@@ -41,7 +38,7 @@ export class Teoric extends React.Component {
                 </div>
              </div>
             );
-  }
+    }
   }
 
   

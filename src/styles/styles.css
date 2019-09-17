@@ -2,16 +2,14 @@
     margin: 0px;
     width: 100%;
     border-bottom-style: solid;
-    background-color: rgb(235, 230, 231);
     height: 10%;
 }
 
 .navBarButton {
     margin: 10px;
-    background-color: rgb(235, 230, 231);
     border: none;
+    background: none;
     color: gray;
-    border-bottom-style: solid;
 }
 
 .bottomBar {
@@ -116,4 +114,9 @@
     background:gray;
     border: red;
     border-radius: 15px;
+}
+
+.subjecth2Cathegory {
+    margin:"5px";
+    border-bottom:"3px solid red";
 }

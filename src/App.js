@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import {translate} from "./translate"
-import {Index} from "./components/index"
 import {Numbers} from "./components/number"
 import {Teoric} from "./components/teorics"
 import {Dropdown,Navbar,Nav, NavDropdown,Form,Button} from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.css';
 import logo from "./images/logo.png";
 import {NavBar} from "./components/navbar"
+import {Home} from "./components/home"
 
 class App extends React.Component {
     constructor(props){
@@ -22,12 +22,12 @@ class App extends React.Component {
     nextComponent(){
       console.group(this.state.mount)
       switch(this.state.mount){
-        case "index":
-          return <Index unMount={this.mountChild.bind(this)} language={this.state.language}/>
+        case "home":
+            return <Home unMount={this.mountChild.bind(this)} language={this.state.language}/>
         case "number":
             return <Numbers unMount={this.mountChild.bind(this)} language={this.state.language}/>
         case "phrase":
-            return <Index unMount={this.mountChild.bind(this)} language={this.state.language}/>
+          return <Home unMount={this.mountChild.bind(this)} language={this.state.language}/>
         case "teoric":
             return <Teoric unMount={this.mountChild.bind(this)} language={this.state.language}/>
         default:
