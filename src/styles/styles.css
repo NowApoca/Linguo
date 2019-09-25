@@ -63,6 +63,39 @@
     color: gray;
 }
 
+.randomPhrase {
+    height: 50px;
+    border: 2px solid gray;
+    width: 50%;
+    border-radius:9px;
+    background-color: yellow;
+    color: gray;
+}
+
+.arrowButton {
+    height: 50px;
+    border: 2px solid gray;
+    width: 100%;
+    border-radius:9px;
+    background-color: yellow;
+    color: gray;
+}
+
+
+.inputPhrase {
+    width: 50%;
+    margin-top: 30px;
+    color: black;
+}
+
+.verifyPhrase {
+    height: 50px;
+    border: 2px solid gray;
+    width: 50%;
+    margin-top: 30px;
+    background-color: red;
+    color: black;
+}
 
 .helpButton {
     display:block;

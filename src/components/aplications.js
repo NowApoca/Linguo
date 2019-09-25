@@ -20,12 +20,12 @@ export class Aplications extends React.Component {
     return (
         <div>
             <div className="container">
-                <div class="row" style={{"border-bottom-style":"dotted"}}>
+                <div class="row" >
                     <div class ="col-6">
-                        <ButtonToApp subjet="hanzi" text="Insert Text here" date="29-11-11" image={hanzi}/>
+                        <ButtonToApp subjet="hanzi" linkTo="/applications/number" text="Insert Text here" date="29-11-11" image={hanzi}/>
                     </div>
                     <div class ="col-6">
-                        <ButtonToApp subjet="hanzi" text="Insert Text here" date="29-11-11" image={hanzi}/>
+                        <ButtonToApp subjet="hanzi" text="" linkTo="/applications/phrase" date="29-11-11" image={hanzi}/>
                     </div>
                 </div>
             </div>
@@ -34,5 +34,3 @@ export class Aplications extends React.Component {
 }
 
 export default Aplications;
-
-

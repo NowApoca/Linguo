@@ -54,7 +54,6 @@ export class Numbers extends React.Component {
                         <div style={{height:"30px"}}></div>
                     </div>
                     <div class="row">
-
                         <div class = "col-6 offset-md-2" style={{height:"10px"}} >
                             <Button  className="randomNumber" variant="secondary" onClick={() => { this.generateNumber("index")}}>Generate Number Random</Button>
                         </div>
