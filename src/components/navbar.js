@@ -10,6 +10,12 @@ import {Aplications} from "./aplications"
 import {Home} from "./home"
 import { Phrase } from './phrase';
 
+function withProps(Component, props) {
+    return function(matchProps) {
+      return <Component {...props} {...matchProps} />
+    }
+  }
+
 export class NavBar extends React.Component {
     constructor(props){
         super(props);
@@ -34,7 +40,7 @@ export class NavBar extends React.Component {
                     <Route path="/applications/number" component={Numbers} />
                     <Route path="/applications/phrase" component={Phrase} />
                     <Route path="/applications" component={Aplications} />
-                    <Route path="/about" component={Teoric} />
+                    <Route path="/about" component={withProps(Teoric, { theme: 'main' })} />
                     <Route path="/" component={Home} />
                 </Switch>
             </Router>
