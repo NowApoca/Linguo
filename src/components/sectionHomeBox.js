@@ -12,21 +12,26 @@ export class SectionHomeBox extends React.Component {
     }
     render() {
         return (
-            <div className=".col-md-6" style={{margin:"30px"}}>
-                <div className="row">
-                    <img src={this.state.image} width="95%" height="65%" style={{"margin":"10px"}} />
-                        <div class ="col-6">
-                            <h6> {this.state.subjet} </h6>
+            <div class="row" style={{"border-bottom-style":"dotted"}}>
+                <div class ="col-6 offset-md-3">
+                    <div className=".col-md-6" style={{margin:"30px"}}>
+                        <div className="row">
+                            <img src={this.state.image} width="95%" height="65%" style={{"margin":"10px"}} />
+                            <div class ="col-6">
+                                <h6> {this.state.subjet} </h6>
+                            </div>
+                            <div class ="col-6">
+                                <h6 > {this.state.date} </h6>
+                            </div>
                         </div>
-                        <div class ="col-6">
-                            <h6 > {this.state.date} </h6>
+                    </div>
+                </div>
+                <div class ="col-10  offset-md-1">
+                        <div classname="row">
+                            <h6 > {this.state.text} </h6>
                         </div>
-
                 </div>
-                <div classname="row">
-                    <h6 > {this.state.text} </h6>
                 </div>
-            </div>
             );
   }
   }

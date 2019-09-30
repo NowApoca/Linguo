@@ -13,7 +13,7 @@ export class SubjetBar extends React.Component {
         return (
             <div className="col-sm-4" style={ {"border-left":"1px solid red"}}>
                 <div className="container blogSubjects" >
-                    <h2 style={{margin:"5px", "border-bottom":"3px solid black"}}> Categorías </h2>
+                    <h2 style={{margin:"5px", "border-bottom":"3px solid black"}}> Links </h2>
                     <div>
                         <row>
                             <button class="themeButton" style={{margin:"10px"}}>Vocabulary</button>
