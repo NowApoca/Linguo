@@ -46,11 +46,6 @@
     bottom: 15%;
 }
 
-.verifyButton {
-    position: absolute;
-    bottom: 25%;
-}
-
 .mainContainer {
     background-color: orange;
 }
@@ -152,4 +147,35 @@
 .subjecth2Cathegory {
     margin:"5px";
     border-bottom:"3px solid red";
+}
+
+arrow {
+  border: solid blue;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 20px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.hskSelectorChoosed {
+    bottom: 25%;
+    margin-top:30px;
+    color:black;
+    background-color: #ABD36A;
+}
+
+.hskSelectorNotChoosed {
+    bottom: 25%;
+    margin-top:30px;
+    color:black;
+    background-color: #AB504F;
 }

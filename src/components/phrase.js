@@ -12,7 +12,7 @@ export class Phrase extends React.Component {
     constructor(props){
         super(props)
         this.unMount = props.unMount
-        this.state = {numberInText:0,numberRandom:-1,answered:false,response:false,maxNumber:10,language:props.language, showHelp:false, stringOfResults:"", finalString:""}
+        this.state = {hsk:2,numberInText:0,numberRandom:-1,answered:false,response:false,maxNumber:10,language:props.language, showHelp:false, stringOfResults:"", finalString:""}
         this.handleNumberChange = this.handleNumberChange.bind(this);
         this.handleMaxNumberChange = this.handleMaxNumberChange.bind(this);
         this.handleVerify = this.handleVerify.bind(this);
@@ -42,6 +42,37 @@ export class Phrase extends React.Component {
             this.setState({answered:true,response:false, stringOfResults:resultString, finalString: ""})
         }
     }
+    showNext(){
+
+    }
+    showPrevious(){
+        
+    }
+
+    changeVocabulary(hsk){
+        this.setState({
+            hsk: hsk
+        })
+    }
+
+    generateHskButtons(){
+        let itemsToShow = [];
+        for(let i = 0; i<6;i++){
+            if(this.state.hsk == (i + 1)){
+                itemsToShow.push(
+                    <div class = "col-2 offset-md-3 ">
+                        <Button  className="hskSelectorChoosed" variant="secondary" onClick={() => { this.changeVocabulary(i + 1)}}>{"HSK" + (i + 1)}</Button>
+                    </div>);
+            }else{
+                itemsToShow.push(
+                <div class = "col-2 offset-md-3 ">
+                    <Button  className="hskSelectorNotChoosed" variant="secondary" onClick={() => { this.changeVocabulary(i + 1)}}>{"HSK" + (i + 1)}</Button>
+                </div>);
+            }
+        }
+        return itemsToShow;
+    }
+
     render() {
         let translation;
         if(this.state.numberRandom > -1){
@@ -49,7 +80,7 @@ export class Phrase extends React.Component {
         }
         return (
             <div >
-                <div className="container" style={{"background-color":"grey", "height":"90vh"}} >
+                <div className="container" style={{"background-color":"grey", "height":"90vh","border-radius":"30px"}} >
                     <div class="row ">
                         <div className="col-8 offset-md-2 " style={{"background-color":"white", height:"50vh", "border-radius": "24px", "margin-top":"5vh"}}>
                             <div class="row">
@@ -59,38 +90,19 @@ export class Phrase extends React.Component {
                                 </div>
                             </div>
                             <div class="row">
-                                <div className="col-4" style={{"margin-top":"10vh"}}>
-                                    <Button  className="arrowButton" variant="secondary" onClick={() => { this.generateNumber("index")}}>Random Flashcard</Button>
+                                <div className="col-4 offset-md-1" style={{"margin-top":"10vh"}}>
+                                    <arrow  className="left" variant="secondary" onClick={() => { this.showNext("index")}}></arrow>
                                 </div>
-                                <div className="col-4 offset-md-4" style={{"margin-top":"10vh"}}>
-                                    <Button  className="arrowButton" variant="secondary" onClick={() => { this.generateNumber("index")}}>Random Flashcard</Button>
+                                <div className="col-1 offset-md-5" style={{"margin-top":"10vh"}}>
+                                    <arrow  className="right" variant="secondary" onClick={() => { this.showPrevious("index")}}></arrow>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row" >
-                        <div class = "col-12 offset-md-3 " style={{height:"10px", "margin-top":"30px"}} >
-                            <Button  className="randomPhrase" variant="secondary" onClick={() => { this.generateNumber("index")}}>Random Flashcard</Button>
-                        </div>
-                    </div>
-                    <div class="row" >
-                        <div class = "col-4 offset-md-2 " style={{height:"10px", "margin-top":"30px"}} >
-                            <input class="inputPhrase" size="15" type="text" value={this.state.maxNumber} onChange={this.handleMaxNumberChange} />
-                        </div>
-                        <div class = "col-4 offset-md-2 " style={{height:"10px", "margin-top":"30px"}} >
-                            <Button  className="verifyPhrase" variant="secondary" onClick={() => { this.generateNumber("index")}}>Check</Button>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div className="col-10 offset-md-2 textOutput ">
-                                <label className="font"> Number to Transalte - Answered - Correct Number</label>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div className="col-12 textOutput ">
-                                <textarea class="col-8 textAreaNumber" value = {this.state.stringOfResults} ></textarea>
-                        </div>
-                    </div>
+                <div class="row" >{
+                    this.generateHskButtons()
+                }
+                </div>
                 </div>
              </div>
             );

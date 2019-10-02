@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/styles.css'
 import { translate } from '../translate';
 import { Button } from 'react-bootstrap';
-import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Link, Switch} from 'react-router-dom'
 
 export class SectionBox extends React.Component {
     constructor(props){
