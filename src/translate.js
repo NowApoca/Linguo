@@ -1,6 +1,7 @@
 import {wordsPinCh} from "./vocabulary/pinyinChr"
 import {wordsEngPin} from "./vocabulary/englishPinyin"
 import {wordsEngChr} from "./vocabulary/englishChr"
+import {hskVocabulary} from "./vocabulary/hskVocabulary"
 
 export function translate(word,language){
     let translation;
@@ -81,4 +82,33 @@ export function translateNumber(number,language){
         translatedNumber = ""
     }
     return translatedNumber;
+}
+
+export function getRandomWord(fromLanguage, toLanguage, hsk){
+    let words;
+    switch(hsk){
+        case 1:
+            words = 150;
+        break;
+        case 2:
+            words = 300;
+        break;
+        case 3:
+            words = 600;
+        break;
+        case 4:
+            words = 1200;
+        break;
+        case 5:
+            words = 2500;
+        break;
+        case 6:
+            words = 5000;
+        break;
+        default:
+            words = 600;
+        break;
+    }
+    let word = hskVocabulary[Math.trunc((Math.random()*(words-1)))]
+    return word;
 }

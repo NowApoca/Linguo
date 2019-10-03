@@ -179,3 +179,13 @@ arrow {
     color:black;
     background-color: #AB504F;
 }
+
+
+.flashCardSize {
+    font-size: 700%;
+}
+
+.reloadButton {
+    font-size: 700%;
+    color: blue;
+}
