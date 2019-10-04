@@ -106,7 +106,7 @@ export function getRandomWord(fromLanguage, toLanguage, hsk){
             words = 5000;
         break;
         default:
-            words = 600;
+            words = 300;
         break;
     }
     let word = hskVocabulary[Math.trunc((Math.random()*(words-1)))]
