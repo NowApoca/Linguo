@@ -61,20 +61,22 @@ export class Phrase extends React.Component {
     }
 
     generateNext(arr){
-        let nextWord;
-        const actualPosition = this.state.position;
-        if(!this.state.flashcards[actualPosition+1]){
-            nextWord = getRandomWord(this.state.fromLanguage, this.state.toLanguage, this.state.hsk)
-            arr.push(nextWord)
-        }else{
-            nextWord = this.state.flashcards[actualPosition+1]
-        }  
-        this.setState({
-            position: actualPosition+1,
-            flashcards: arr,
-            actualCard: nextWord,
-            translation: false
-        })
+        if(this.state.flashcards.length < 3 || this.state.position < 2){
+            let nextWord;
+            const actualPosition = this.state.position;
+            if(!this.state.flashcards[actualPosition+1]  ){
+                nextWord = getRandomWord(this.state.fromLanguage, this.state.toLanguage, this.state.hsk)
+                arr.push(nextWord)
+            }else{
+                nextWord = this.state.flashcards[actualPosition+1]
+            }  
+            this.setState({
+                position: actualPosition+1,
+                flashcards: arr,
+                actualCard: nextWord,
+                translation: false
+            })
+        }
     }
 
     showFlashCard(){
