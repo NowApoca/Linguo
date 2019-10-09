@@ -56,7 +56,8 @@ export class Phrase extends React.Component {
         (state == "previous")? this.setState({
             actualCard: ((this.state.position == 0)? this.state.actualCard : arr[actualPosition-1] ),
             position: ((this.state.position == 0)? 0 : actualPosition-1 ),
-            flashcards: arr
+            flashcards: arr,
+            translation: false
         }): this.generateNext(arr);
     }
 
