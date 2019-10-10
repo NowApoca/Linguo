@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import {Link} from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/styles.css';
 import { Button } from 'react-bootstrap';
@@ -16,26 +17,38 @@ export class SubjetBar extends React.Component {
                     <h2 style={{margin:"5px", "border-bottom":"3px solid black"}}> Links </h2>
                     <div>
                         <row>
-                            <button class="themeButton" style={{margin:"10px"}}>Vocabulary</button>
+                            <Link to="/teorics/vocabulary" style={{"margin":"10px", width:"95%", height:"65%"}} >
+                                <button class="themeButton" style={{margin:"10px"}}>Vocabulary</button>
+                            </Link>
                         </row>
                     </div>
                     <div>
                         <row>
-                            <button class="themeButton" style={{margin:"10px"}}>Grammar</button>
+                            <Link to="/teorics/grammar" style={{"margin":"10px", width:"95%", height:"65%"}} >
+                                <button class="themeButton" style={{margin:"10px"}}>Grammar</button>
+                            </Link>
+                            
                         </row>
                     <div>
                         <row>
-                            <button class="themeButton" style={{margin:"10px"}}>Expresions</button>
+                            <Link to="/teorics/expresions" style={{"margin":"10px", width:"95%", height:"65%"}} >
+                                <button class="themeButton" style={{margin:"10px"}}>Expresions</button>
+                            </Link>
+                            
                         </row>
                     </div>
                     <div>
                         <row>
-                            <button class="themeButton" style={{margin:"10px"}}>Mock Tests</button>
+                            <Link to="/teorics/mocks" style={{"margin":"10px", width:"95%", height:"65%"}} >
+                                <button class="themeButton" style={{margin:"10px"}}>Mock Tests</button>
+                            </Link>
                         </row>
                     </div>
                     <div>
                         <row>
-                            <button class="themeButton" style={{margin:"10px"}}>About China</button>
+                            <Link to="/teorics/aboutchina" style={{"margin":"10px", width:"95%", height:"65%"}} >
+                                <button class="themeButton" style={{margin:"10px"}}>About China</button>
+                            </Link>
                         </row>
                     </div>
                     </div>

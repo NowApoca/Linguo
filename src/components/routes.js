@@ -35,7 +35,7 @@ export class Routes extends React.Component {
   render() {
       let arr = []
       for(let article of articles){
-        arr.push(<Route exact path={"/teorics/"+ article.theme +"/" + article.subject} component={withProps(Article, article)} />);
+        arr.push(<Route exact path={"/teorics/" + article.subject} component={withProps(Article, article)} />);
       }
       const itemsToShow = arr.concat([
         <Route exact path="/teorics/grammar" component={withProps(Teoric, { theme: 'grammar' })} />,
@@ -47,6 +47,7 @@ export class Routes extends React.Component {
         <Route exact path="/applications/phrase" component={Phrase} />,
         <Route exact path="/applications" component={Aplications} />,
         <Route exact path="/about" component={withProps(Teoric, { theme: 'main' })} />,
+        <Route exact path="/teorics" component={withProps(Teoric, { theme: 'main' })} />,
         <Route exact path="/" component={Home} />
         ])
     return (

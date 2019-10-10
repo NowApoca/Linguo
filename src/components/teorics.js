@@ -60,9 +60,6 @@ export class Teoric extends React.Component {
     }
     render() {
         let itemsToShow = [];
-        if(this.state.numberRandom > -1){
-            translation = translateNumber(this.state.numberRandom,"NUMCHN")
-        }
         for(let index in items){
             const item = items[index];
             if((this.state.theme == "main") || (item.theme.indexOf(this.state.theme) >= 0)){

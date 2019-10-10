@@ -17,7 +17,7 @@ export class SectionBox extends React.Component {
                 <div className="row" style={{height:"240px"}}>
                     <img src={this.state.image} width="95%" height="65%" style={{"margin":"10px"}} />
                         <div class ="col-6">
-                        <Link to={"/teorics/" + this.state.theme +"/"+this.state.subject}>  <button className="blogButton" > {this.state.subject} </button></Link>
+                        <Link to={"/teorics/" + this.state.subject}>  <button className="blogButton" > {this.state.subject} </button></Link>
                         </div>
                         <div class ="col-6">
                             <h6 > {this.state.date} </h6>
