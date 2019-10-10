@@ -28,10 +28,6 @@
     border-radius: 35px;
 }
 
-.font {
-    font-family: Georgia, 'Times New Roman', Times, serif
-}
-
 .textAreaNumber {
     margin: 0px;
     position: absolute;
@@ -185,7 +181,24 @@ arrow {
     font-size: 700%;
 }
 
+.numberSize {
+    font-size: 350%;
+}
+
 .reloadButton {
     font-size: 700%;
     color: blue;
+}
+
+@font-face {
+    font-family: "Handlee script=all rev=2";
+    src: url("https://fonts.gstatic.com/l/font?kit=-F6xfjBsISg9aMakDm_i0AFp5Asu93FNrsA-OPRO4KvD5IcLjfagWYdcfptwHmNQHS4NuT5mgIklRfQq8xMkWog6BseWGBzw96fp5-ymeEP2GSNEhxrJVjeWL7Y_IOiUNmKLMpU3e2b33s5F279PI2wSHOFr5Y4v5MWQPQdBnhYhbEkGg5w&skey=38994f38d36fa1cb&v=v8") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+  }
+
+.h7 {
+    font-family: "Handlee script=all rev=2";
+    font-weight: 400;
+    font-style: normal;
 }

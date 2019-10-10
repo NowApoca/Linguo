@@ -173,7 +173,7 @@ export class Phrase extends React.Component {
                     : 
                         <Button  className="hskSelectorChoosed" variant="secondary" onClick={() => { this.pinyinButton()}}>{"Enable Pinyin"}</Button>
                     }
-                    </div>
+                </div>
                 </div>
                 </div>
              </div>

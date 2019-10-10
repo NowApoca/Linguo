@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import {constants} from "../constant"
-import { translateNumber } from '../translate';
+import { translateNumber, getRandomWord } from '../translate';
 import { Button } from 'react-bootstrap';
 import { NumberHelp } from './numberHelp';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -12,7 +12,12 @@ export class Numbers extends React.Component {
     constructor(props){
         super(props)
         this.unMount = props.unMount
-        this.state = {numberInText:0,numberRandom:-1,answered:false,response:false,maxNumber:10,language:props.language, showHelp:false, stringOfResults:"", finalString:""}
+        let actualNumber = {
+            hanzi:"十",
+            number: 10,
+            pinyin:"shí"
+        }
+        this.state = {translation:false, maxNumberExponential:100000,actualNumber:actualNumber,numberInText:0,numberRandom:-1,answered:false,response:false,maxNumber:10,language:props.language, showHelp:false, stringOfResults:"", finalString:""}
         this.handleNumberChange = this.handleNumberChange.bind(this);
         this.handleMaxNumberChange = this.handleMaxNumberChange.bind(this);
         this.handleVerify = this.handleVerify.bind(this);
@@ -26,9 +31,13 @@ export class Numbers extends React.Component {
         this.setState({maxNumber: parseInt(event.target.value)});
     }
     generateNumber(){
-        let randNumber = String(Math.floor(Math.random()*this.state.maxNumber));
+        let randNumber = String(Math.floor(Math.random()*this.state.maxNumberExponential));
         let finalString = translateNumber(randNumber,"NUMCHN")
-        this.setState({numberRandom: randNumber, finalString:finalString});
+        this.setState({actualNumber:{
+            hanzi: finalString,
+            pinyin: "",
+            number: randNumber
+        }, translation: false});
     }
     showHelp(){
         (this.state.showHelp)? this.setState({showHelp: false}) : this.setState({showHelp: true});
@@ -42,88 +51,125 @@ export class Numbers extends React.Component {
             this.setState({answered:true,response:false, stringOfResults:resultString, finalString: ""})
         }
     }
+    //
+    showNext(){
+
+    }
+    showPrevious(){
+        
+    }
+
+    changeVocabulary(exponential){
+        this.setState({
+            maxNumberExponential: exponential
+        })
+    }
+
+    generateHskButtons(){
+        let itemsToShow = [];
+        for(let i = 0; i<10;i++){
+            if(this.state.maxNumberExponential == (10**i)){
+                itemsToShow.push(
+                    <div class = "col-4 offset-md-1 ">
+                        <Button className="hskSelectorChoosed" variant="secondary" onClick={() => { this.changeVocabulary(10**i)}}>{10**i}</Button>
+                    </div>);
+            }else{
+                itemsToShow.push(
+                <div class = "col-4 offset-md-1 ">
+                    <Button className="hskSelectorNotChoosed" variant="secondary" onClick={() => { this.changeVocabulary(10**i)}}>{10**i}</Button>
+                </div>);
+            }
+        }
+        return itemsToShow;
+    }
+
+    showFlashCard(){
+        let itemsToPush = [];
+        if(this.state.translation){
+            itemsToPush.push(<h1 className="numberSize" style={{"text-align": "center"}}>{this.state.actualNumber.number}</h1>)
+        }else{
+            itemsToPush.push(<h1 className="numberSize" style={{"text-align": "center"}}>{this.state.actualNumber.hanzi}</h1>)
+            if(this.state.pinyin){
+                itemsToPush.push(
+                    <h3 style={{"text-align": "center"}}>{this.state.actualNumber.pinyin}</h3>
+                )
+            }
+        }
+        return itemsToPush;
+    }
+
+    showTranslation(){
+        if(!this.state.translation){
+            this.setState({translation:true})
+            return;
+        }
+        this.setState({translation:false})
+        return;
+    }
+
+    pinyinButton(){
+        if(!this.state.pinyin){
+            this.setState({pinyin:true})
+            return;
+        }
+        this.setState({pinyin:false})
+        return;
+    }
     render() {
         let translation;
         if(this.state.numberRandom > -1){
             translation = translateNumber(this.state.numberRandom,"NUMCHN")
         }
         return (
-            <div >
-                <div className="container" style={{"background-color":"grey","height":"90vh"}} >
-                    <div class="row">
-                        <div style={{height:"30px"}}></div>
-                    </div>
-                    <div class="row">
-                        <div class = "col-6 offset-md-2" style={{height:"10px"}} >
-                            <Button  className="randomNumber" variant="secondary" onClick={() => { this.generateNumber("index")}}>Generate Number Random</Button>
-                        </div>
-                        <div class = "col-3">
-                            <Button  className="helpButton" variant="secondary" onClick={() => { this.showHelp()}}> 
-                            {/* <img src={logo} width="20" />  */}Help
-                            </Button>
-                            {/* {this.state.showHelp && <Text> hola</Text> */}
-                            {(this.state.showHelp) ? 
-                                        (
-                                            <NumberHelp initNumber={1} language={"CH"} writedLanguage={"PIN"}/>        
-                                    ) : (
-                                        function(){}
-                            )} 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div style={{height:"30px"}}></div>
-                    </div>
+                <div >
+                <div className="container" style={{"background-color":"grey", "height":"120vh","border-radius":"30px"}} >
                     <div class="row ">
-                        <div class = "col-6 offset-md-2" height="10">
-                            <h6> From 0 to {this.state.maxNumber +". Max number allowed: "+constants.maxNumCHN} </h6>                        
+
+                        <div className="col-8 offset-md-2 " style={{"background-color":"white", height:"50vh", "border-radius": "24px", "margin-top":"5vh"}}>
+                            <div class="row">
+                                <div className="col-1 offset-md-9" >
+                                    <h1 className="reloadButton" onClick={() => { this.showTranslation()}}> &#8634; </h1>
+                                </div>
+                            </div>
+                            <div class="row" style={{position:"absolute",bottom:"35%", width:"100%"}} >                    
+                                <div className="col-8 offset-md-2" style={{"margin-top":"5vh"}}>
+                                    {this.showFlashCard()}
+                                </div>
+                            </div>
+                            <div class="row" style={{position:"absolute",bottom:"3%", width:"100%"}} >
+                                <div className="col-1 offset-md-10" >
+                                    <arrow  className="right" variant="secondary" onClick={() => { this.generateNumber("index")}}></arrow>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
-                    <div class="row ">
-                        <div class = "col-6 offset-md-2 div-2" height="10">
-                            <label>
-                            Max Number:
-                            <input size="15" type="text" value={this.state.maxNumber} onChange={this.handleMaxNumberChange} />
-                            
-                            </label>
-                        </div>                        
-                    </div>
-                    <div class="row">
-                        <div class="col-7 offset-md-1">
-                            {(this.state.numberRandom < 0) ? (
-                                ""
-                                    ) : (
-                                        <h1 style={{position:"absolute","font-size":"100px"}}> {translation} </h1>
-                            )}
+                    <div class="row" style={{"margin-top":"30px"}} >
+                        <div className="col-5">
+                            <div class="row">{
+                                this.generateHskButtons()}
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div className = "col-6 offset-md-1 verifyButton">
-                                <label>
-                                Number:
-                                <input size="15" type="text" value={this.state.numberInText} onChange={this.handleNumberChange} />
-                                </label>
-                                <button onClick={() => { this.handleVerify()}}>Verify</button>
-                                   
-                        </div>
-                        <div className = "col-3 offset-md-5 verifyButton">
-                            {(this.state.answered) ? (
-                                (this.state.response) ? (
-                                    <h1 className="font">Bien</h1>
+                        <div className="col-7">
+                            <div class="col-12">
+                                {(!this.state.pinyin)?
+                                    <Button  className="hskSelectorNotChoosed" variant="secondary" onClick={() => { this.pinyinButton()}}>{"Enable Pinyin"}</Button>        
+                                : 
+                                    <Button  className="hskSelectorChoosed" variant="secondary" onClick={() => { this.pinyinButton()}}>{"Enable Pinyin"}</Button>
+                                }
+                            </div>
+                            <div class = "col-12" style={{"margin-top":"30px"}}>
+                                <Button  className="helpButton" variant="secondary" onClick={() => { this.showHelp()}}> 
+                                {/* <img src={logo} width="20" />  */}Help
+                                </Button>
+                                {/* {this.state.showHelp && <Text> hola</Text> */}
+                                {(this.state.showHelp) ? 
+                                            (
+                                                <NumberHelp initNumber={1} language={"CH"} writedLanguage={"PIN"}/>        
                                         ) : (
-                                            <h1> Mal </h1>
-                                )
-                            )
-                            : ("") }
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div className="col-10 offset-md-2 textOutput ">
-                                <label className="font"> Number to Transalte - Answered - Correct Number</label>
-                        </div>
-                    </div>
-                    <div class="row ">
-                        <div className="col-12 textOutput ">
-                                <textarea class="col-8 textAreaNumber" value = {this.state.stringOfResults} ></textarea>
+                                            function(){}
+                                )} 
+                            </div>
                         </div>
                     </div>
                 </div>

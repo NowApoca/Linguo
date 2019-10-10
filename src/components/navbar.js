@@ -20,19 +20,31 @@ function withProps(Component, props) {
 export class NavBar extends React.Component {
     constructor(props){
         super(props);
-        this.state ={mountChild: props.mountChild};
+        this.state ={language: props.language};
+        this.changeLanguage = props.changeLanguage;
     }
+
+  changeLanguageApp(language){
+    this.setState({
+      language: language
+    })
+    this.changeLanguage(language)
+  }
   render() {
+    console.log("EN NAVBAR", this.state.language)
     return (
         <div>
                 <div className="container">
                     <div className="row navBar" >
                         <div className="col-2"> <img src={logo} alt="Smiley face" height="42" width="42"></img> </div>
-                        <div className="col-2"> <Link to="/"> <button className="navBarButton" >Home</button></Link></div>
-                        <div className="col-2"> <Link to="/teorics">  <button className="navBarButton" >Teoría</button></Link></div>
-                        <div className="col-2"> <Link to="/applications">  <button className="navBarButton" >Aplicaciones</button></Link></div>
-                        <div className="col-2"> <Link to="/applications">  <button className="navBarButton" >Downloads</button></Link></div>
-                        <div className="col-2"> <Link to="/about">  <button className="navBarButton" >¿?</button></Link></div>
+                        <div className="col-1"> <Link to="/"> <button className="navBarButton" >{translate("home",this.state.language)}</button></Link></div>
+                        <div className="col-1"> <Link to="/teorics">  <button className="navBarButton" >{translate("theorics",this.state.language)}</button></Link></div>
+                        <div className="col-2-md"> <Link to="/applications">  <button className="navBarButton" >{translate("applications",this.state.language)}</button></Link></div>
+                        <div className="col-1-sm"> <Link to="/applications">  <button className="navBarButton" >{translate("downloads",this.state.language)}</button></Link></div>
+                        <div className="col-1-sm"> <Link to="/about">  <button className="navBarButton" >{translate("home",this.state.language)}</button></Link></div>
+                        <div className="col-1-sm">  <button className="navBarButton" onClick={() => this.changeLanguageApp("es")}>{translate("es",this.state.language)}</button> </div>
+                        <div className="col-1-sm">  <button className="navBarButton" onClick={() => this.changeLanguageApp("zh")}>{translate("zh",this.state.language)}</button> </div>
+                        <div className="col-1-sm">  <button className="navBarButton" onClick={() => this.changeLanguageApp("en")}>{translate("en",this.state.language)}</button> </div>
                     </div>
                 </div>
                 <div style={{height:"30px"}}></div> 

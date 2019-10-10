@@ -29,7 +29,7 @@ function withProps(Component, props) {
 export class Routes extends React.Component {
     constructor(props){
       super(props)
-      this.state = {language:"eng"}
+      this.state = {language: props.language}
     }
 
   render() {
@@ -38,17 +38,17 @@ export class Routes extends React.Component {
         arr.push(<Route exact path={"/teorics/" + article.subject} component={withProps(Article, article)} />);
       }
       const itemsToShow = arr.concat([
-        <Route exact path="/teorics/grammar" component={withProps(Teoric, { theme: 'grammar' })} />,
-        <Route exact path="/teorics/vocabulary" component={withProps(Teoric, { theme: 'vocabulary' })} />,
-        <Route exact path="/teorics/expresions" component={withProps(Teoric, { theme: 'expresions' })} />,
-        <Route exact path="/teorics/mocks" component={withProps(Teoric, { theme: 'mocks' })} />,
-        <Route exact path="/teorics/aboutchina" component={withProps(Teoric, { theme: 'aboutchina' })} />,
-        <Route exact path="/applications/number" component={Numbers} />,
-        <Route exact path="/applications/phrase" component={Phrase} />,
-        <Route exact path="/applications" component={Aplications} />,
+        <Route exact path="/teorics/grammar" component={withProps(Teoric, { theme: 'grammar', language: this.state.language })} />,
+        <Route exact path="/teorics/vocabulary" component={withProps(Teoric, { theme: 'vocabulary', language: this.state.language })} />,
+        <Route exact path="/teorics/expresions" component={withProps(Teoric, { theme: 'expresions', language: this.state.language })} />,
+        <Route exact path="/teorics/mocks" component={withProps(Teoric, { theme: 'mocks', language: this.state.language })} />,
+        <Route exact path="/teorics/aboutchina" component={withProps(Teoric, { theme: 'aboutchina', language: this.state.language })} />,
+        <Route exact path="/applications/number" component={withProps(Numbers, { language: this.state.language })} />,
+        <Route exact path="/applications/phrase" component={withProps(Phrase, {language: this.state.language })} />,
+        <Route exact path="/applications" component={withProps(Aplications, { language: this.state.language })} />,
         <Route exact path="/about" component={withProps(Teoric, { theme: 'main' })} />,
         <Route exact path="/teorics" component={withProps(Teoric, { theme: 'main' })} />,
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={withProps(Home, { language: this.state.language })} />
         ])
     return (
     <div >

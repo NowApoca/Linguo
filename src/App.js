@@ -17,17 +17,23 @@ import {Routes} from "./components/routes"
 class App extends React.Component {
     constructor(props){
       super(props)
-      this.state = {language:"eng"}
+      this.state = {language:"en"}
+    }
+    changeLanguage(language){
+      this.setState({
+        language:language
+      })
     }
 
   render() {
+    console.log(this.state.language, "EN APP")
     return (
     <div >
     <Router> 
-    <NavBar language={this.state.language}/>
-                <Switch>
-                    <Routes/>
-                </Switch>
+    <NavBar language={this.state.language} changeLanguage={this.changeLanguage.bind(this)}/>
+      <Switch>
+          <Routes language={this.state.language}/>
+      </Switch>
     </Router> 
     </div>);
   }

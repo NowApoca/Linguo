@@ -33,7 +33,7 @@ export class Title extends React.Component {
     render() {
         return (
             <div >
-                <h1 style={{"text-align":"center"}} > {this.state.text} </h1>
+                <h1 className="h7" style={{"text-align":"center"}} > {this.state.text} </h1>
             </div>
             );
   }
@@ -48,7 +48,7 @@ export class SubTitle extends React.Component {
     render() {
         return (
             <div class ="offset-md-1">
-                <h1 > {this.state.text} </h1>
+                <h3 className="h7"> {this.state.text} </h3>
             </div>
             );
   }
@@ -63,7 +63,7 @@ export class Paragraph extends React.Component {
     render() {
         return (
             <div class ="col-10  offset-md-1">
-                <h5 > {this.state.text} </h5>
+                <h5 className="h7"> {this.state.text} </h5>
             </div>
             );
   }

@@ -1,6 +1,8 @@
 import {wordsPinCh} from "./vocabulary/pinyinChr"
 import {wordsEngPin} from "./vocabulary/englishPinyin"
 import {wordsEngChr} from "./vocabulary/englishChr"
+import {wordsEnEs} from "./vocabulary/wordsEnEs"
+import {wordsEnEn} from "./vocabulary/wordsEnEn"
 import {hskVocabulary} from "./vocabulary/hskVocabulary"
 
 export function translate(word,language){
@@ -12,10 +14,19 @@ export function translate(word,language){
         case "PIN":
             translation = wordsEngPin[word]
             break;
+        case "es":
+            translation = wordsEnEs[word]
+            break;
+        case "en":
+            translation = wordsEnEn[word]
+            break;
         case "CH":
             translation = wordsEngChr[word]
             break;
         case "NUMCHN":
+            translation = wordsEngChr[word]
+            break;
+        case "SPN":
             translation = wordsEngChr[word]
             break;
         default: 
