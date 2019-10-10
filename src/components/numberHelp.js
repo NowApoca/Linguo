@@ -9,6 +9,9 @@ export class NumberHelp extends React.Component {
         super(props)
         this.state = {language:props.language, initNumber:props.initNumber, writedLanguage: props.writedLanguage}
     }
+    componentWillReceiveProps(props) {
+        this.setState({ language: props.language });  
+    }
     render() {
         return (
             <div>

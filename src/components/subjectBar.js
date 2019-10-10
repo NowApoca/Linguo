@@ -4,11 +4,15 @@ import {Link} from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/styles.css';
 import { Button } from 'react-bootstrap';
+import { translate } from '../translate';
 
-export class SubjetBar extends React.Component {
+export class SubjectBar extends React.Component {
     constructor(props){
         super(props)
         this.state = {language:props.language, initNumber:props.initNumber, writedLanguage: props.writedLanguage}
+    }
+    componentWillReceiveProps(props) {
+        this.setState({ language: props.language });  
     }
     render() {
         return (
@@ -18,21 +22,21 @@ export class SubjetBar extends React.Component {
                     <div>
                         <row>
                             <Link to="/teorics/vocabulary" style={{"margin":"10px", width:"95%", height:"65%"}} >
-                                <button class="themeButton" style={{margin:"10px"}}>Vocabulary</button>
+                                <button class="themeButton" style={{margin:"10px"}}>{translate("vocabulary", this.state.language)}</button>
                             </Link>
                         </row>
                     </div>
                     <div>
                         <row>
                             <Link to="/teorics/grammar" style={{"margin":"10px", width:"95%", height:"65%"}} >
-                                <button class="themeButton" style={{margin:"10px"}}>Grammar</button>
+                                <button class="themeButton" style={{margin:"10px"}}>{translate("grammar", this.state.language)}</button>
                             </Link>
                             
                         </row>
                     <div>
                         <row>
                             <Link to="/teorics/expresions" style={{"margin":"10px", width:"95%", height:"65%"}} >
-                                <button class="themeButton" style={{margin:"10px"}}>Expresions</button>
+                                <button class="themeButton" style={{margin:"10px"}}>{translate("expresions", this.state.language)}</button>
                             </Link>
                             
                         </row>
@@ -40,14 +44,14 @@ export class SubjetBar extends React.Component {
                     <div>
                         <row>
                             <Link to="/teorics/mocks" style={{"margin":"10px", width:"95%", height:"65%"}} >
-                                <button class="themeButton" style={{margin:"10px"}}>Mock Tests</button>
+                                <button class="themeButton" style={{margin:"10px"}}>{translate("mock", this.state.language)}</button>
                             </Link>
                         </row>
                     </div>
                     <div>
                         <row>
                             <Link to="/teorics/aboutchina" style={{"margin":"10px", width:"95%", height:"65%"}} >
-                                <button class="themeButton" style={{margin:"10px"}}>About China</button>
+                                <button class="themeButton" style={{margin:"10px"}}>{translate("aboutChina", this.state.language)}</button>
                             </Link>
                         </row>
                     </div>

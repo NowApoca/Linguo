@@ -8,7 +8,10 @@ import { Button } from 'react-bootstrap';
 export class SectionHomeBox extends React.Component {
     constructor(props){
         super(props)
-        this.state = {subjet:props.subjet, image:props.image, date: props.date, text: props.text}
+        this.state = {subject:props.subject, image:props.image, date: props.date, text: props.text, language: props.language}
+    }
+    componentWillReceiveProps(props) {
+        this.setState({ language: props.language });  
     }
     render() {
         return (
@@ -18,7 +21,7 @@ export class SectionHomeBox extends React.Component {
                         <div className="row">
                             <img src={this.state.image} width="95%" height="65%" style={{"margin":"10px"}} />
                             <div class ="col-6">
-                                <h6> {this.state.subjet} </h6>
+                                <h6> {translate(this.state.subject, this.state.language)} </h6>
                             </div>
                             <div class ="col-6">
                                 <h6 > {this.state.date} </h6>
@@ -28,7 +31,7 @@ export class SectionHomeBox extends React.Component {
                 </div>
                 <div class ="col-10  offset-md-1">
                         <div classname="row">
-                            <h6 > {this.state.text} </h6>
+                            <h6 className="fontStyle"> {this.state.text} </h6>
                         </div>
                 </div>
                 </div>

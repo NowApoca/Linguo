@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css';
 import { translateNumber } from '../translate';
 import {SectionHomeBox} from "./sectionHomeBox"
-import {SubjetBar} from "./subjectBar"
+import {SubjectBar} from "./subjectBar"
 import {Title, SubTitle, Paragraph, Image} from "./writeComponents"
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/styles.css'
@@ -14,7 +14,10 @@ import vocabulary from "../images/vocabulary.png";
 export class Article extends React.Component {
     constructor(props){
         super(props)
-        this.state = {subjet:props.subjet, image:props.image, date: props.date, text: props.text}
+        this.state = {subject:props.subject, image:props.image, date: props.date, text: props.text}
+    }
+    componentWillReceiveProps(props) {
+        this.setState({ language: props.language });  
     }
     render() {
         return (

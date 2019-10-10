@@ -6,10 +6,11 @@ import { Route, Link, Switch,} from 'react-router-dom'
 import {Teoric} from "./teorics"
 import {translate} from "../translate"
 import {Numbers} from "./number"
-import {Aplications} from "./aplications"
+import {Applications} from "./applications"
 import {Home} from "./home"
 import {Article} from "./article"
 import { Phrase } from './phrase';
+import {Download} from "./downloads"
 import number from "../images/number.png";
 
 let articles = [{
@@ -32,6 +33,9 @@ export class Routes extends React.Component {
       this.state = {language: props.language}
     }
 
+    componentWillReceiveProps(props) {
+      this.setState({ language: props.language });  
+  }
   render() {
       let arr = []
       for(let article of articles){
@@ -45,9 +49,10 @@ export class Routes extends React.Component {
         <Route exact path="/teorics/aboutchina" component={withProps(Teoric, { theme: 'aboutchina', language: this.state.language })} />,
         <Route exact path="/applications/number" component={withProps(Numbers, { language: this.state.language })} />,
         <Route exact path="/applications/phrase" component={withProps(Phrase, {language: this.state.language })} />,
-        <Route exact path="/applications" component={withProps(Aplications, { language: this.state.language })} />,
-        <Route exact path="/about" component={withProps(Teoric, { theme: 'main' })} />,
-        <Route exact path="/teorics" component={withProps(Teoric, { theme: 'main' })} />,
+        <Route exact path="/applications" component={withProps(Applications, { language: this.state.language })} />,
+        <Route exact path="/downloads" component={withProps(Download, { language: this.state.language })} />,
+        <Route exact path="/about" component={withProps(Teoric, { theme: 'main', language: this.state.language })} />,
+        <Route exact path="/teorics" component={withProps(Teoric, { theme: 'main',language: this.state.language })} />,
         <Route exact path="/" component={withProps(Home, { language: this.state.language })} />
         ])
     return (

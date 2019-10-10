@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 import {constants} from "../constant"
-import { translateNumber, getRandomWord } from '../translate';
+import { translateNumber, getRandomWord, translate } from '../translate';
 import { Button } from 'react-bootstrap';
 import { NumberHelp } from './numberHelp';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -67,11 +67,11 @@ export class Numbers extends React.Component {
 
     generateHskButtons(){
         let itemsToShow = [];
-        for(let i = 0; i<10;i++){
+        for(let i = 1; i<9;i++){
             if(this.state.maxNumberExponential == (10**i)){
                 itemsToShow.push(
                     <div class = "col-4 offset-md-1 ">
-                        <Button className="hskSelectorChoosed" variant="secondary" onClick={() => { this.changeVocabulary(10**i)}}>{10**i}</Button>
+                        <Button className="hskSelectorChoosed" variant="secondary" onClick={() => { this.changeVocabulary(10**i)}}>{translate((10**i).toString(),this.state.language)}</Button>
                     </div>);
             }else{
                 itemsToShow.push(
@@ -115,6 +115,9 @@ export class Numbers extends React.Component {
         this.setState({pinyin:false})
         return;
     }
+    componentWillReceiveProps(props) {
+        this.setState({ language: props.language });  
+    }
     render() {
         let translation;
         if(this.state.numberRandom > -1){
@@ -153,14 +156,14 @@ export class Numbers extends React.Component {
                         <div className="col-7">
                             <div class="col-12">
                                 {(!this.state.pinyin)?
-                                    <Button  className="hskSelectorNotChoosed" variant="secondary" onClick={() => { this.pinyinButton()}}>{"Enable Pinyin"}</Button>        
+                                    <Button  className="hskSelectorNotChoosed" variant="secondary" onClick={() => { this.pinyinButton()}}>{translate("Enable Pinyin",this.state.language)}</Button>        
                                 : 
-                                    <Button  className="hskSelectorChoosed" variant="secondary" onClick={() => { this.pinyinButton()}}>{"Enable Pinyin"}</Button>
+                                    <Button  className="hskSelectorChoosed" variant="secondary" onClick={() => { this.pinyinButton()}}>{translate("enable_pinyin",this.state.language)}</Button>
                                 }
                             </div>
                             <div class = "col-12" style={{"margin-top":"30px"}}>
                                 <Button  className="helpButton" variant="secondary" onClick={() => { this.showHelp()}}> 
-                                {/* <img src={logo} width="20" />  */}Help
+                                {/* <img src={logo} width="20" />  */}{translate("help",this.state.language)}
                                 </Button>
                                 {/* {this.state.showHelp && <Text> hola</Text> */}
                                 {(this.state.showHelp) ? 

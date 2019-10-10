@@ -8,7 +8,7 @@ import {NavBar} from "./components/navbar"
 import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom'
 import {Teoric} from "./components/teorics"
 import {Numbers} from "./components/number"
-import {Aplications} from "./components/aplications"
+import {Aplications} from "./components/applications"
 import {Home} from "./components/home"
 import {Article} from "./components/article"
 import { Phrase } from './components/phrase';

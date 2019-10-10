@@ -30,7 +30,7 @@ export function translate(word,language){
             translation = wordsEngChr[word]
             break;
         default: 
-            translation = ""
+            translation = word
     }
     return translation;
 }

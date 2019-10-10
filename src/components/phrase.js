@@ -26,6 +26,9 @@ export class Phrase extends React.Component {
         
     }
 
+    componentWillReceiveProps(props) {
+        this.setState({ language: props.language });  
+    }
     changeVocabulary(hsk){
         this.setState({
             hsk: hsk
@@ -169,9 +172,9 @@ export class Phrase extends React.Component {
                 <div class="row" >
                     <div class="col-3 offset-md-3">
                     {(!this.state.pinyin)?
-                        <Button  className="hskSelectorNotChoosed" variant="secondary" onClick={() => { this.pinyinButton()}}>{"Enable Pinyin"}</Button>        
+                        <Button  className="hskSelectorNotChoosed" variant="secondary" onClick={() => { this.pinyinButton()}}>{translate("Enable Pinyin",this.state.language)}</Button>        
                     : 
-                        <Button  className="hskSelectorChoosed" variant="secondary" onClick={() => { this.pinyinButton()}}>{"Enable Pinyin"}</Button>
+                        <Button  className="hskSelectorChoosed" variant="secondary" onClick={() => { this.pinyinButton()}}>{translate("Enable Pinyin",this.state.language)}</Button>
                     }
                 </div>
                 </div>

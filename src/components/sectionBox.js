@@ -9,7 +9,10 @@ import { Route, Link, Switch} from 'react-router-dom'
 export class SectionBox extends React.Component {
     constructor(props){
         super(props)
-        this.state = {subject:props.subject, image:props.image, date: props.date, theme: props.theme}
+        this.state = {subject:props.subject, image:props.image, date: props.date, theme: props.theme, language: props.language}
+    }
+    componentWillReceiveProps(props) {
+        this.setState({ language: props.language });  
     }
     render() {
         return (
@@ -17,7 +20,7 @@ export class SectionBox extends React.Component {
                 <div className="row" style={{height:"240px"}}>
                     <img src={this.state.image} width="95%" height="65%" style={{"margin":"10px"}} />
                         <div class ="col-6">
-                        <Link to={"/teorics/" + this.state.subject}>  <button className="blogButton" > {this.state.subject} </button></Link>
+                        <Link to={"/teorics/" + this.state.subject}>  <button className="blogButton" > {translate(this.state.subject, this.state.language)} </button></Link>
                         </div>
                         <div class ="col-6">
                             <h6 > {this.state.date} </h6>

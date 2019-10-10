@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css';
 import { translateNumber } from '../translate';
 import {SectionHomeBox} from "./sectionHomeBox"
-import {SubjetBar} from "./subjectBar"
+import {SubjectBar} from "./subjectBar"
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/styles.css'
 import hanzi from "../images/hanzi.png";
@@ -18,13 +18,16 @@ export class Home extends React.Component {
     onClick(nextComponent){
         this.state.mountChild(nextComponent)
     }
+    componentWillReceiveProps(props) {
+        this.setState({ language: props.language });  
+    }
   render() {
     return (
         <div>
             <div className="container">
-                        <SectionHomeBox subjet="hanzi" text="Insert Text here" date="29-11-11" image={hanzi}/>
-                        <SectionHomeBox subjet="hanzi" text="Insert Text here" date="29-11-11" image={hanzi}/>
-                        <SectionHomeBox subjet="hanzi" text="The first newspaper, Siraj-ul-Akhbar (Lamp of the News) was initially published on January 11
+                        <SectionHomeBox subject="hanzi" text="Insert Text here" date="29-11-11" image={hanzi}/>
+                        <SectionHomeBox subject="hanzi" text="Insert Text here" date="29-11-11" image={hanzi}/>
+                        <SectionHomeBox subject="hanzi" text="The first newspaper, Siraj-ul-Akhbar (Lamp of the News) was initially published on January 11
                         , 1906, with Abdul-Rauf as editor. After this first and only issue in Persian language, its publication stopped.
                          It was revived in October 1911 by Mahmud Tarzi, the editor and owner of the newspaper who was critical of the friendship
                           between the British Empire and Afghanistan. Mahmud Tarzi became known as the pioneer of Afghan journalism, in 1916 he famously wrote:
@@ -37,7 +40,7 @@ export class Home extends React.Component {
                                  Afghanistan and the Press Law of 1965 provided for freedom of the press, within the boundaries of appropriate behavior. The 
                                  press was editorially independent from government but was instructed to safeguard the interests of the state and constitutional monarchy,
                                   Islam, and public order. Afghan journalism progressed and developed from the 1950s through to the 1970s, though it remained limited. " date="29-11-11" image={hanzi}/>
-                        <SectionHomeBox subjet="hanzi" text="Insert Text here" date="29-11-11" image={hanzi}/>
+                        <SectionHomeBox subject="hanzi" text="Insert Text here" date="29-11-11" image={hanzi}/>
             </div>
         </div>);
   }
